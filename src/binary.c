@@ -204,28 +204,6 @@ fwrite_matrix(
     return (TRUE);
 }
 
-/*===================== Support routines ==============================*/
-
-/* ******************************* VECTOR *******************************
- *       The following routines interact with vectors.
- *
- *   If there is an error we don't really return - int_error breaks us out.
- *
- *   This subroutine based on a subroutine listed in "Numerical Recipies in C",
- *   by Press, Flannery, Teukoilsky and Vetterling (1988).
- *
- */
-float GPFAR *
-alloc_vector(int nl, int nh)
-{
-    float GPFAR *vec;
-
-    if (! (vec = gp_alloc((nh - nl + 1) * sizeof(float), NULL))) {
-	int_error(NO_CARET, "not enough memory to create vector");
-	return NULL;		/* Not reached */
-    }
-    return (vec - nl);
-}
 
 
 /*
